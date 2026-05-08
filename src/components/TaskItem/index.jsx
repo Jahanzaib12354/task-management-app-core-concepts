@@ -8,7 +8,7 @@ const TaskItem = ({ task }) => {
       <View>
         <Text style={styles.title}>{task.title}</Text>
         <Text style={task.completed ? styles.done : styles.pending}>
-          {task.completed ? 'Done' : 'Pending'}
+          {task?.completed ? 'Done' : 'Pending'}
         </Text>
       </View>
     </View>

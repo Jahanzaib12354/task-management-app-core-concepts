@@ -1,39 +1,49 @@
+
 import React, { useState } from 'react';
-import { View, TextInput, Button, Alert } from 'react-native';
+import { View, Alert } from 'react-native';
+import InputField from '../../components/InputField';
+import CustomButton from '../../components/CustomButton';
 import styles from './styles';
 
-const AddTaskScreen = ({ navigation, route }) => {
+const AddTaskScreen = () => {
   const [title, setTitle] = useState('');
+   const [description, setDescription] = useState('');
 
   const addTask = () => {
     if (title === '') {
       Alert.alert('Error', 'Title is required');
       return;
     }
-
+    
     const newTask = {
       id: Date.now(),
       title,
+      description,
       completed: true,
     };
 
-    route.params?.onAddTask(newTask);
+    console.log("New Task:", title);
 
     setTitle('');
-  
-
-    navigation.goBack();
+      setDescription('');
+    Alert.alert('Success', 'Task Added (local only)');
   };
 
   return (
     <View style={styles.container}>
-      <TextInput
-        placeholder="Task Title *"
+      <InputField
+        placeholder="Task Title "
         value={title}
         onChangeText={setTitle}
-        style={styles.input}
       />
-      <Button title="Save Task" onPress={addTask} />
+       <InputField
+        placeholder="Description (optional)"
+        value={description}
+        onChangeText={setDescription}
+      />
+
+
+      <CustomButton text="Save Task" onPress={addTask} />
     </View>
   );
 };

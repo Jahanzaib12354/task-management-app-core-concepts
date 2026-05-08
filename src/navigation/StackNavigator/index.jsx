@@ -2,15 +2,18 @@
 
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+import SplashScreen from '../../screens/Splash';
 import TabNavigator from '../TabNavigator';
-import AddTaskScreen from '../../screens/AddTaskScreen';
+
 
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
   return (
     <Stack.Navigator>
+    <Stack.Screen
+    name="Splash"
+    component={SplashScreen}/>
 
       <Stack.Screen
         name="Main"
@@ -18,11 +21,8 @@ const StackNavigator = () => {
         options={{ headerShown: false }}
       />
 
-      <Stack.Screen
-        name="AddTask"
-        component={AddTaskScreen}
-      />
-
+    
+     
     </Stack.Navigator>
   );
 };

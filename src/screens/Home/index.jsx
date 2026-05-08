@@ -10,21 +10,12 @@ const HomeScreen = ({ navigation }) => {
     { id: 2, title: 'Assignment', completed: true },
   ]);
 
-  const addTaskHandler = (task) => {
-    setTasks((prev) => [...prev, task]);
-  };
+
 
   return (
     <View style={styles.container}>
 
-      <Button
-        title="Add Task"
-        onPress={() =>
-          navigation.navigate('AddTask', {
-            onAddTask: addTaskHandler,
-          })
-        }
-      />
+    
 
       <FlatList
         data={tasks}
@@ -35,5 +26,6 @@ const HomeScreen = ({ navigation }) => {
     </View>
   );
 };
+
 
 export default HomeScreen;
