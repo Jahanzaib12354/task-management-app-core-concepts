@@ -73,7 +73,7 @@ const TabNavigator = () => {
     ),
   })}
       />
-
+ 
       <Tab.Screen
         name="Task-Detail"
         component={TaskDetailScreen}

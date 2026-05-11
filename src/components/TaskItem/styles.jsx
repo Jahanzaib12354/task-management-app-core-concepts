@@ -1,33 +1,71 @@
 
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+
   container: {
-    backgroundColor: '#fff',
-    padding: 15,
-    marginVertical: 8,
-    borderRadius: 10,
-    elevation: 3,
+    backgroundColor: '#FFFFFF',
+
+    padding: 18,
+    borderRadius: 14,
+
+    marginBottom: 14,
+
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+
+    shadowOpacity: 0.08,
+    shadowRadius: 4.65,
+
+    elevation: 4,
   },
 
   title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
+    fontSize: 17,
+    color: '#1E293B',
 
-  done: {
-    color: 'green',
-    marginTop: 5,
-    fontSize: 16,
+    fontFamily: 'Poppins-Bold',
+
+    flex: 1,
   },
 
   pending: {
-    color: 'red',
-    marginTop: 5,
-    fontSize: 16,
+    backgroundColor: '#FEF3C7',
+    color: '#D97706',
+
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+
+    borderRadius: 20,
+
+    fontSize: 13,
+
+    fontFamily: 'Poppins-Medium',
   },
 
-  });
+  completed: {
+    backgroundColor: '#DCFCE7',
+    color: '#15803D',
+
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+
+    borderRadius: 20,
+
+    fontSize: 13,
+
+    fontFamily: 'Poppins-Medium',
+  },
+
+});
+
 export default styles;
 
 

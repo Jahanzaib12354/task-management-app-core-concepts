@@ -4,7 +4,7 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashScreen from '../../screens/Splash';
 import TabNavigator from '../TabNavigator';
-
+import TaskDetailScreen from '../../screens/TaskDetail';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,7 +21,7 @@ const StackNavigator = () => {
         options={{ headerShown: false }}
       />
 
-    
+   
      
     </Stack.Navigator>
   );

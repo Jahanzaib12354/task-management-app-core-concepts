@@ -1,49 +1,73 @@
 
 import React, { useState } from 'react';
-import { View, Alert } from 'react-native';
+import { View, Alert, ToastAndroid } from 'react-native';
 import InputField from '../../components/InputField';
 import CustomButton from '../../components/CustomButton';
+import { getTasks, saveTasks } from '../../services/storageService';
 import styles from './styles';
 
-const AddTaskScreen = () => {
-  const [title, setTitle] = useState('');
-   const [description, setDescription] = useState('');
+const AddTaskScreen = ({ navigation }) => {
 
-  const addTask = () => {
-    if (title === '') {
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+
+  const addTask = async () => {
+
+    if (!title.trim()) {
       Alert.alert('Error', 'Title is required');
       return;
     }
-    
-    const newTask = {
-      id: Date.now(),
-      title,
-      description,
-      completed: true,
-    };
 
-    console.log("New Task:", title);
+    try {
 
-    setTitle('');
+      const tasks = await getTasks();
+
+      const newTask = {
+        id: Date.now(),
+        title,
+        description,
+        completed: false,
+      };
+
+      tasks.push(newTask);
+
+      await saveTasks(tasks);
+
+      ToastAndroid.show(
+        'Task Saved Successfully',
+        ToastAndroid.SHORT
+      );
+
+      setTitle('');
       setDescription('');
-    Alert.alert('Success', 'Task Added (local only)');
+
+      navigation.navigate('Home');
+
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <View style={styles.container}>
+
       <InputField
-        placeholder="Task Title "
+        placeholder="Task Title"
         value={title}
         onChangeText={setTitle}
       />
-       <InputField
-        placeholder="Description (optional)"
+
+      <InputField
+        placeholder="Description"
         value={description}
         onChangeText={setDescription}
       />
 
+      <CustomButton
+        text="Save Task"
+        onPress={addTask}
+      />
 
-      <CustomButton text="Save Task" onPress={addTask} />
     </View>
   );
 };
