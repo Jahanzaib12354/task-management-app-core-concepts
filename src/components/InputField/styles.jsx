@@ -11,6 +11,14 @@ const styles = StyleSheet.create({
     width: '100%',
     fontSize: 16,
   },
+ label: {
+  fontSize: 16,
+  fontFamily: 'Montserrat-Bold',
+  marginBottom: 5,
+},
+star: {
+  color: "red",
+},
 });
 
 export default styles;

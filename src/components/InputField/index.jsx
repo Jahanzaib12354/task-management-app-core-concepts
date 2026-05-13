@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./styles";
-import { TextInput } from "react-native";
-
+import { TextInput, View, Text } from "react-native";
 
 const InputField = ({
   value,
@@ -9,19 +8,25 @@ const InputField = ({
   placeholder = "something",
   customStyle,
   secureTextEntry,
-  editable
-
+  editable,
+  label,
+  required, 
 }) => {
   return (
-    <TextInput
-      value={value}
-      onChangeText={onChangeText}
-      placeholder={placeholder}
-      style={[styles.container, {...customStyle}]}
-      secureTextEntry={secureTextEntry}
-      editable={editable}
-      
-    />
+    <View>
+      {label && (<Text style={styles.label}>{label}
+      {required && <Text style={styles.star}> *</Text>}
+        </Text>
+      )}
+      <TextInput
+        value={value}
+        onChangeText={onChangeText}
+        placeholder={placeholder}
+        style={[styles.container, customStyle]}
+        secureTextEntry={secureTextEntry}
+        editable={editable}
+      />
+    </View>
   );
 };
 

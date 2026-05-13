@@ -1,72 +1,57 @@
-
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
 
   container: {
-    backgroundColor: '#FFFFFF',
-
-    padding: 18,
-    borderRadius: 14,
-
-    marginBottom: 14,
-
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
+    backgroundColor: '#fff',
+    padding: 12,
+    marginVertical: 6,
+    marginHorizontal: 10,
+    borderRadius: 10,
 
+    // shadow (iOS)
     shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
 
-    shadowOpacity: 0.08,
-    shadowRadius: 4.65,
-
-    elevation: 4,
+    // shadow (Android)
+    elevation: 3,
   },
 
-  title: {
-    fontSize: 17,
-    color: '#1E293B',
-
-    fontFamily: 'Poppins-Bold',
-
+  // LEFT SIDE (TEXT AREA)
+  leftContent: {
     flex: 1,
   },
 
-  pending: {
-    backgroundColor: '#FEF3C7',
-    color: '#D97706',
-
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-
-    borderRadius: 20,
-
-    fontSize: 13,
-
-    fontFamily: 'Poppins-Medium',
+  title: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 4,
   },
 
-  completed: {
-    backgroundColor: '#DCFCE7',
-    color: '#15803D',
-
-    paddingHorizontal: 12,
+  // DELETE BUTTON 🚀
+  deleteBtn: {
+    backgroundColor: '#ff4d4d',
     paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 6,
+  },
 
-    borderRadius: 20,
+  deleteText: {
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
 
-    fontSize: 13,
-
-    fontFamily: 'Poppins-Medium',
+  // OPTIONAL: STATUS (if needed styling override)
+  status: {
+    marginTop: 4,
   },
 
 });
 
 export default styles;
-
-
-

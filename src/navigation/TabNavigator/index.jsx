@@ -16,27 +16,17 @@ const TabNavigator = () => {
         tabBarIcon: ({ focused, color, size }) => {
 
           let iconName;
-          if (route.name === 'Home') {
-            iconName = focused
-              ? 'home'
-              : 'home-outline';
+          if (route.name === 'Home') {iconName = focused? 'home': 'home-outline';
           }
           else if (route.name === 'Add-Task') {
-            iconName = focused
-              ? 'add-circle'
-              : 'add-circle-outline';
+            iconName = focused? 'add-circle': 'add-circle-outline';
           }
           else if (route.name === 'Task-Detail') {
-            iconName = focused
-              ? 'document-text'
-              : 'document-text-outline';
+            iconName = focused? 'document-text': 'document-text-outline';
           }
 
           return (
-            <Icon
-              name={iconName}
-              size={24}
-              color={color}
+            <Icon name={iconName}size={24}color={color}
             />
           );
         },

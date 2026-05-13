@@ -6,6 +6,15 @@ export default StyleSheet.create({
     padding: 20,
     backgroundColor: '#f2f2f2',
   },
+    title: {
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 15,
+    color: '#555',
+    marginTop: 15,
+  },
+  star: {
+  color: 'red',
+},
 
   input: {
     backgroundColor: '#fff',
@@ -15,9 +24,9 @@ export default StyleSheet.create({
   },
   buttonContainer:{
       position: 'absolute',
-  bottom: 20,
-  left: 20,
-  right: 20,
+      bottom: 20,
+      left: 20,
+      right: 20,
 
   }
 });

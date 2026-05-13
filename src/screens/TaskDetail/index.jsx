@@ -1,18 +1,20 @@
 
-import React, { useState,useEffect,} from 'react';
-import {View,Text,TouchableOpacity,Alert,} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TouchableOpacity, Alert } from 'react-native';
 import { getTasks, saveTasks } from '../../services/storageService';
-
+import TaskStatus from '../../components/TaskStatus'
 import styles from './styles';
 
 const TaskDetailScreen = ({ route, navigation }) => {
 
   const task = route.params?.task;
 
-  const [completed, setCompleted] = useState(task?.completed);
+  const [completed, setCompleted] = useState(false);
 
   useEffect(() => {
-    setCompleted(task?.completed);
+    if (task) {
+      setCompleted(task.completed);
+    }
   }, [task]);
 
   const markCompleted = async () => {
@@ -60,7 +62,7 @@ const TaskDetailScreen = ({ route, navigation }) => {
 
       <Text style={styles.label}>Status</Text>
 
-      <Text
+      {/* <Text
         style={
           completed
             ? styles.completed
@@ -68,7 +70,8 @@ const TaskDetailScreen = ({ route, navigation }) => {
         }
       >
         {completed ? 'Completed' : 'Pending'}
-      </Text>
+      </Text> */}
+     <TaskStatus completed={completed} />
 
       <TouchableOpacity
         style={styles.button}
@@ -84,3 +87,5 @@ const TaskDetailScreen = ({ route, navigation }) => {
 };
 
 export default TaskDetailScreen;
+
+

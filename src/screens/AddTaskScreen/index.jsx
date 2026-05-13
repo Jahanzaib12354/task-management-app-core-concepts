@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { View, Alert, ToastAndroid } from 'react-native';
+import { View,Text, Alert, ToastAndroid } from 'react-native';
 import InputField from '../../components/InputField';
 import CustomButton from '../../components/CustomButton';
 import { getTasks, saveTasks } from '../../services/storageService';
@@ -10,7 +10,7 @@ const AddTaskScreen = ({ navigation }) => {
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-
+  
   const addTask = async () => {
 
     if (!title.trim()) {
@@ -50,20 +50,24 @@ const AddTaskScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+    <InputField
+  label="Task-Title"
+  required
+  customStyle={styles.input}
+  placeholder="Task-Title"
+  value={title}
+  onChangeText={setTitle}
+/>
 
-      <InputField
-        placeholder="Task Title"
-        value={title}
-        onChangeText={setTitle}
-      />
-
-      <InputField
+      <InputField 
+      label="Description"
+      customStyle={styles.input}
         placeholder="Description"
         value={description}
         onChangeText={setDescription}
       />
 
-      <CustomButton
+      <CustomButton customStyle={styles.buttonContainer}
         text="Save Task"
         onPress={addTask}
       />
