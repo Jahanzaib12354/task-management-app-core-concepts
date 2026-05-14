@@ -58,7 +58,7 @@ const HomeScreen = ({ navigation }) => {
         );
       });
 
-console.log('Filtered Tasks:', filtered);
+
 
       setFilteredTasks(filtered);
     }
@@ -90,7 +90,7 @@ console.log('Filtered Tasks:', filtered);
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
 
       <Text style={styles.headerTitle}>My Tasks</Text>
 
@@ -124,7 +124,7 @@ console.log('Filtered Tasks:', filtered);
         )}
       />
 
-    </SafeAreaView>
+    </View>
   );
 };
 
